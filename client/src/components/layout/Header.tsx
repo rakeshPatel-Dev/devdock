@@ -40,6 +40,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -578,13 +579,15 @@ export default function Header({
               </>
             ) : (
               <>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hidden md:flex h-8 px-3 text-[13px] font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg"
-                >
-                  Sign in
-                </Button>
+                <Link to="/login" >
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="hidden md:flex h-8 px-3 text-[13px] font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg"
+                  >
+                    Sign in
+                  </Button>
+                </Link>
                 <Button
                   size="sm"
                   className="hidden md:flex rounded-lg bg-black dark:bg-white text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-100 h-8 px-4 text-[12px] font-semibold shadow-sm shadow-black/10 dark:shadow-white/5 transition-all duration-200 group"
@@ -600,6 +603,8 @@ export default function Header({
 
             {/* Mobile hamburger */}
             <button
+              type="button"
+              aria-label="Toggle menu"
               onClick={() => setMobileOpen(true)}
               className="lg:hidden w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
             >
