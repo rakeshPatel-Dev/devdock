@@ -1,13 +1,17 @@
 // lib/axios.ts
 import axios from "axios";
 
+const BASE_URL =  "http://localhost:3000/api";
+
 const axiosInstance = axios.create({
-  baseURL: process.env['BACKEND_BASE_URL'] || "http://localhost:3000/api",
+baseURL: BASE_URL,
   withCredentials: true, // Important: This enables cookies to be sent and received
   headers: {
     "Content-Type": "application/json",
   },
 });
+
+
 
 // Request interceptor to add any additional headers if needed
 axiosInstance.interceptors.request.use(
